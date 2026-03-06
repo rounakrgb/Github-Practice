@@ -6,3 +6,7 @@ app = FastAPI()
 @app.get("/")
 def greetings():
     return {"message":"Hello"}
+
+@app.get("/methods")
+def methods():
+    return {"m":"s"}
