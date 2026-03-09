@@ -1,15 +1,14 @@
 from fastapi import FastAPI
 import os
 
-app = FastAPI()
 
+app = FastAPI()
+Database_URL = "postgresql://host.docker.internal:pass123@localhost:5432/git_data"
 @app.get("/")
 def greetings():
     return {"message":"Hello"}
 
-@app.get("/methods")
-def methods():
-    return {"m":"s"}
+
 
 @app.get("/env")
 def env():
