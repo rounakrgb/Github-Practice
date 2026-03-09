@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+
+  api:
+    build: .
+    container_name: docker_test_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://postgres:password@postgres:5432/git_data
+    volumes:
+      - .:/app
+
+  postgres:
+    image: postgres:15
+    container_name: docker_test_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
