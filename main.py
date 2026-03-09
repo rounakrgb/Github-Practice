@@ -5,7 +5,7 @@ import os
 app = FastAPI()
 Database_URL = "postgresql://host.docker.internal:pass123@localhost:5432/git_data"
 @app.get("/")
-def greetings():
+def func():
     return {"message":"Hello"}
 
 
